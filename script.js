@@ -222,30 +222,40 @@ function showPhoto(photoNumber, mediaSrc, mediaType) {
     if (mediaType === 'video') {
         // Crear video en el modal con controles y audio fuerte
         modalPhoto.innerHTML = `
-            <video id="modal-video" controls autoplay playsinline>
+            <video id="modal-video" controls autoplay playsinline preload="auto">
                 <source src="${mediaSrc}" type="video/mp4">
                 Tu navegador no soporta el elemento de video.
             </video>
         `;
         
         // Configurar volumen al máximo inmediatamente
-        const modalVideo = document.getElementById('modal-video');
-        if (modalVideo) {
-            modalVideo.volume = 1.0; // Volumen al 100%
-            
-            // Asegurar que el audio esté habilitado
-            modalVideo.muted = false;
-            
-            // Intentar reproducir con audio
-            modalVideo.play().then(() => {
-                console.log('Video reproduciéndose con audio al máximo');
-            }).catch(e => {
-                console.log('Intentando reproducir:', e);
-                // Si falla el autoplay, intentar de nuevo al hacer click
+        setTimeout(() => {
+            const modalVideo = document.getElementById('modal-video');
+            if (modalVideo) {
+                modalVideo.volume = 1.0; // Volumen al 100%
+                
+                // Asegurar que el audio esté habilitado
                 modalVideo.muted = false;
-                modalVideo.play();
-            });
-        }
+                
+                // Pausar el video de preview si existe
+                const previewVideo = document.getElementById('preview-video-4');
+                if (previewVideo) {
+                    previewVideo.pause();
+                }
+                
+                // Intentar reproducir con audio
+                const playPromise = modalVideo.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('Video reproduciéndose con audio al máximo');
+                    }).catch(e => {
+                        console.log('Error de autoplay, el usuario debe iniciar manualmente:', e);
+                        // El usuario tendrá que dar play manualmente
+                    });
+                }
+            }
+        }, 100);
     } else {
         // Crear imagen en el modal
         modalPhoto.innerHTML = `<img src="${mediaSrc}" alt="Foto ${photoNumber}">`;

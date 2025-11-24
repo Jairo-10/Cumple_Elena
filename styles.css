@@ -714,6 +714,23 @@ section {
     background: #000;
 }
 
+/* Asegurar que el video se vea bien en móviles */
+@supports (-webkit-touch-callout: none) {
+    /* Específico para iOS */
+    .modal-photo video {
+        max-height: 80vh;
+        width: 100%;
+    }
+}
+
+/* Para Android y otros móviles */
+@media (max-width: 768px) {
+    .modal-photo video {
+        max-height: 75vh;
+        object-fit: contain;
+    }
+}
+
 /* Efectos de partículas */
 .confetti {
     position: fixed;

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz Cumpleaños Elena! 🎉</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Pantalla de inicio -->
     <div id="intro-screen" class="intro-screen">
@@ -74,7 +76,8 @@
         <!-- Sección de Galería de Fotos -->
         <section class="gallery-section">
             <h2 class="section-title">📸 Momentos especiales 📸</h2>
-            <p class="gallery-subtitle">Haz clic para voltear la tarjeta y ver la foto. Clic en la foto para ampliarla</p>
+            <p class="gallery-subtitle">Haz clic para voltear la tarjeta y ver la foto. Clic en la foto para ampliarla
+            </p>
             <div class="gallery-grid">
                 <div class="photo-card-flip" onclick="flipCard(1)">
                     <div class="photo-card-inner" id="card-1">
@@ -82,34 +85,40 @@
                             <div class="photo-icon">📷</div>
                             <p>Una foto contigo 😊</p>
                         </div>
-                        <div class="photo-card-back" onclick="event.stopPropagation(); showPhoto(1, 'img/yoElena1.jpg', 'image')">
+                        <div class="photo-card-back"
+                            onclick="event.stopPropagation(); showPhoto(1, 'img/yoElena1.jpg', 'image')">
                             <img src="img/yoElena1.jpg" alt="Foto 1">
                             <div class="photo-overlay">👁️ Ver completa</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="photo-card-flip" onclick="flipCard(2)">
                     <div class="photo-card-inner" id="card-2">
                         <div class="photo-card-front">
                             <div class="photo-icon">🌟</div>
                             <p>Un recuerdo especial</p>
                         </div>
-                        <div class="photo-card-back" onclick="event.stopPropagation(); showPhoto(2, 'img/momentos.jpg', 'image')">
+                        <div class="photo-card-back"
+                            onclick="event.stopPropagation(); showPhoto(2, 'img/momentos.jpg', 'image')">
                             <img src="img/momentos.jpg" alt="Foto 2">
                             <div class="photo-overlay">👁️ Ver completa</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="photo-card-flip" onclick="flipCard(4)">
                     <div class="photo-card-inner" id="card-4">
                         <div class="photo-card-front">
                             <div class="photo-icon">🎬</div>
                             <p>¡Sorpresa en video! 🎥</p>
                         </div>
-                        <div class="photo-card-back video-card" onclick="event.stopPropagation(); showPhoto(4, 'img/Elena.mp4', 'video')">
-                            <video id="preview-video-4" src="img/Elena.mp4" loop muted playsinline></video>
+                        <!-- En la galería (línea ~130 aprox) -->
+                        <div class="photo-card-back video-card"
+                            onclick="event.stopPropagation(); showPhoto(4, 'https://res.cloudinary.com/dchtu09fv/video/upload/Elena_tp2mye.mp4', 'video')">
+                            <video id="preview-video-4"
+                                src="https://res.cloudinary.com/dchtu09fv/video/upload/Elena_tp2mye.mp4" loop muted
+                                playsinline></video>
                             <div class="photo-overlay">🎬 Ver completo</div>
                         </div>
                     </div>
@@ -144,10 +153,24 @@
                     </div>
                     <div class="letter-content">
                         <p class="typewriter-text">Elena,</p>
-                        <p class="typewriter-text">Hoy es un día lleno de alegría, porque celebramos tu cumpleaños y la hermosa energía que siempre transmites. No sabes cuánto me alegra saber que cumples un año más, creciendo, aprendiendo y convirtiéndote cada día en una versión aún más fuerte, valiente y especial de ti misma.</p>
-                        <p class="typewriter-text">En estos años has demostrado tener un corazón enorme, una alegría que contagia y una energía que ilumina a quienes te rodean. Eres de esas personas que dejan una huella sincera, que suman, que acompañan, que siempre están con una sonrisa o una palabra bonita para ofrecer. Y eso es algo que se valora más de lo que imaginas.</p>
-                        <p class="typewriter-text">Quiero aprovechar este día para decirte lo mucho que te aprecio. Tal vez no siempre lo digo, pero valoro de verdad la persona que eres: tu manera de tratar a los demás, tu bondad, tu sinceridad y esa forma tan bonita que tienes de ver la vida. Agradesco a Dios en ponerte en mi familia y me alegra aún más poder estar aquí para felicitarte en un día tan especial para ti.</p>
-                        <p class="typewriter-text">Espero que este nuevo año te traiga momentos llenos de felicidad, metas alcanzadas y sueños que se hagan realidad. Que nunca te falten motivos para sonreír, ni personas que te quieran bien y sepan reconocer todo lo que vales. Te deseo un camino lleno de luz, oportunidades y razones para sentirte orgullosa de quién eres y de lo lejos que vas a llegar Elena.</p>
+                        <p class="typewriter-text">Hoy es un día lleno de alegría, porque celebramos tu cumpleaños y la
+                            hermosa energía que siempre transmites. No sabes cuánto me alegra saber que cumples un año
+                            más, creciendo, aprendiendo y convirtiéndote cada día en una versión aún más fuerte,
+                            valiente y especial de ti misma.</p>
+                        <p class="typewriter-text">En estos años has demostrado tener un corazón enorme, una alegría que
+                            contagia y una energía que ilumina a quienes te rodean. Eres de esas personas que dejan una
+                            huella sincera, que suman, que acompañan, que siempre están con una sonrisa o una palabra
+                            bonita para ofrecer. Y eso es algo que se valora más de lo que imaginas.</p>
+                        <p class="typewriter-text">Quiero aprovechar este día para decirte lo mucho que te aprecio. Tal
+                            vez no siempre lo digo, pero valoro de verdad la persona que eres: tu manera de tratar a los
+                            demás, tu bondad, tu sinceridad y esa forma tan bonita que tienes de ver la vida. Agradesco
+                            a Dios en ponerte en mi familia y me alegra aún más poder estar aquí para felicitarte en un
+                            día tan especial para ti.</p>
+                        <p class="typewriter-text">Espero que este nuevo año te traiga momentos llenos de felicidad,
+                            metas alcanzadas y sueños que se hagan realidad. Que nunca te falten motivos para sonreír,
+                            ni personas que te quieran bien y sepan reconocer todo lo que vales. Te deseo un camino
+                            lleno de luz, oportunidades y razones para sentirte orgullosa de quién eres y de lo lejos
+                            que vas a llegar Elena.</p>
                         <p class="typewriter-text">Feliz cumpleaños. 🎂✨</p>
                     </div>
                     <div class="letter-signature">
@@ -202,4 +225,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Elena! 🎉</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="intro-content">
+            <h1 class="intro-title">Hoy es un día especial...</h1>
+            <div class="intro-emoji">🎂</div>
+            <button class="start-button" onclick="startCelebration()">¡Descubre la sorpresa! 🎁</button>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Sección Hero -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>¡FELIZ CUMPLEAÑOS!</h1>
+                <div class="name">ELENA</div>
+                <div class="cake">🎂</div>
+                <div class="message">¡Que tengas un día increíble! ✨</div>
+                <button class="button" onclick="celebrate()">¡CELEBRA! 🎊</button>
+            </div>
+        </section>
+
+        <!-- Sección de Regalos Sorpresa -->
+        <section class="gifts-section">
+            <h2 class="section-title">🎁 Abre tus regalos sorpresa 🎁</h2>
+            <div class="gifts-container">
+                <div class="gift-box" onclick="openGift(1)">
+                    <div class="gift-content" id="gift-1">
+                        <div class="gift-closed">🎁</div>
+                        <div class="gift-opened hidden">
+                            <div class="gift-text">
+                                <h3>💝 Un deseo especial</h3>
+                                <p>Que todos tus sueños se hagan realidad este año</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-box" onclick="openGift(2)">
+                    <div class="gift-content" id="gift-2">
+                        <div class="gift-closed">🎁</div>
+                        <div class="gift-opened hidden">
+                            <div class="gift-text">
+                                <h3>🌟 Tu brillo especial</h3>
+                                <p>Iluminas la vida de todos los que te rodean</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-box" onclick="openGift(3)">
+                    <div class="gift-content" id="gift-3">
+                        <div class="gift-closed">🎁</div>
+                        <div class="gift-opened hidden">
+                            <div class="gift-text">
+                                <h3>🎉 Momentos increíbles</h3>
+                                <p>Que este año esté lleno de aventuras y risas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Galería de Fotos -->
+        <section class="gallery-section">
+            <h2 class="section-title">📸 Momentos especiales 📸</h2>
+            <p class="gallery-subtitle">Haz clic para voltear la tarjeta y ver la foto. Clic en la foto para ampliarla</p>
+            <div class="gallery-grid">
+                <div class="photo-card-flip" onclick="flipCard(1)">
+                    <div class="photo-card-inner" id="card-1">
+                        <div class="photo-card-front">
+                            <div class="photo-icon">📷</div>
+                            <p>Una foto contigo 😊</p>
+                        </div>
+                        <div class="photo-card-back" onclick="event.stopPropagation(); showPhoto(1, 'img/yoElena1.jpg', 'image')">
+                            <img src="img/yoElena1.jpg" alt="Foto 1">
+                            <div class="photo-overlay">👁️ Ver completa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-card-flip" onclick="flipCard(2)">
+                    <div class="photo-card-inner" id="card-2">
+                        <div class="photo-card-front">
+                            <div class="photo-icon">🌟</div>
+                            <p>Un recuerdo especial</p>
+                        </div>
+                        <div class="photo-card-back" onclick="event.stopPropagation(); showPhoto(2, 'img/momentos.jpg', 'image')">
+                            <img src="img/momentos.jpg" alt="Foto 2">
+                            <div class="photo-overlay">👁️ Ver completa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-card-flip" onclick="flipCard(4)">
+                    <div class="photo-card-inner" id="card-4">
+                        <div class="photo-card-front">
+                            <div class="photo-icon">🎬</div>
+                            <p>¡Sorpresa en video! 🎥</p>
+                        </div>
+                        <div class="photo-card-back video-card" onclick="event.stopPropagation(); showPhoto(4, 'img/Elena.mp4', 'video')">
+                            <video id="preview-video-4" src="img/Elena.mp4" loop muted playsinline></video>
+                            <div class="photo-overlay">🎬 Ver completo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Mensajes -->
+        <section class="messages-section">
+            <h2 class="section-title">Un mensaje especial para ti ✉</h2>
+            <p class="messages-subtitle">Haz clic en el sobre para leer tu mensaje</p>
+            <div class="messages-container">
+                <!-- Sobre único -->
+                <div class="envelope-wrapper" onclick="openEnvelope()">
+                    <div class="envelope" id="envelope-main">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body">
+                            <div class="envelope-text">Para Elena</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para carta -->
+        <div id="letter-modal" class="modal hidden" onclick="closeLetter()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close-button" onclick="closeLetter()">×</span>
+                <div class="letter-full">
+                    <div class="letter-header">
+                        <div class="letter-decoration">✨ Para Elena ✨</div>
+                    </div>
+                    <div class="letter-content">
+                        <p class="typewriter-text">Elena,</p>
+                        <p class="typewriter-text">Hoy es un día lleno de alegría, porque celebramos tu cumpleaños y la hermosa energía que siempre transmites. No sabes cuánto me alegra saber que cumples un año más, creciendo, aprendiendo y convirtiéndote cada día en una versión aún más fuerte, valiente y especial de ti misma.</p>
+                        <p class="typewriter-text">En estos años has demostrado tener un corazón enorme, una alegría que contagia y una energía que ilumina a quienes te rodean. Eres de esas personas que dejan una huella sincera, que suman, que acompañan, que siempre están con una sonrisa o una palabra bonita para ofrecer. Y eso es algo que se valora más de lo que imaginas.</p>
+                        <p class="typewriter-text">Quiero aprovechar este día para decirte lo mucho que te aprecio. Tal vez no siempre lo digo, pero valoro de verdad la persona que eres: tu manera de tratar a los demás, tu bondad, tu sinceridad y esa forma tan bonita que tienes de ver la vida. Agradesco a Dios en ponerte en mi familia y me alegra aún más poder estar aquí para felicitarte en un día tan especial para ti.</p>
+                        <p class="typewriter-text">Espero que este nuevo año te traiga momentos llenos de felicidad, metas alcanzadas y sueños que se hagan realidad. Que nunca te falten motivos para sonreír, ni personas que te quieran bien y sepan reconocer todo lo que vales. Te deseo un camino lleno de luz, oportunidades y razones para sentirte orgullosa de quién eres y de lo lejos que vas a llegar Elena.</p>
+                        <p class="typewriter-text">Feliz cumpleaños. 🎂✨</p>
+                    </div>
+                    <div class="letter-signature">
+                        <p>Con mucho cariño,</p>
+                        <p class="signature-name">Tu sobrino 🤓</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini-Juego: Adivina el número de deseos -->
+        <section class="game-section">
+            <h2 class="section-title">🎮 ¡Juego de cumpleaños! 🎮</h2>
+            <div class="game-container">
+                <h3>¿Cuántas velas puedes apagar en 10 segundos?</h3>
+                <div class="candles-container" id="candles-container">
+                    <!-- Las velas se generarán con JavaScript -->
+                </div>
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Velas apagadas:</span>
+                        <span class="stat-value" id="score">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Tiempo:</span>
+                        <span class="stat-value" id="timer">10</span>
+                    </div>
+                </div>
+                <button class="game-button" id="game-button" onclick="startGame()">¡Empezar juego! 🎯</button>
+                <div class="game-result hidden" id="game-result"></div>
+            </div>
+        </section>
+
+        <!-- Botón final -->
+        <section class="final-section">
+            <button class="mega-celebration-button" onclick="megaCelebration()">
+                🎊 ¡CELEBRACIÓN FINAL! 🎊
+            </button>
+            <p class="final-message">¡Que tengas el mejor cumpleaños de todos! 🎂✨</p>
+        </section>
+    </div>
+
+    <!-- Modal para fotos -->
+    <div id="photo-modal" class="modal hidden" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-button" onclick="closeModal()">×</span>
+            <div id="modal-photo" class="modal-photo">
+                <!-- La imagen se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
